@@ -37,11 +37,28 @@ public class GameManager : MonoBehaviour
 
         if (type == Type.Type2)
         {
-            //your code
+            _sumomo.transform.position = new Vector2(
+                Mathf.Clamp(_sumomo.transform.position.x, _sumomoStartPosition.x - Range, _sumomoStartPosition.x + Range),
+                Mathf.Clamp(_sumomo.transform.position.y, _sumomoStartPosition.y - Range, _sumomoStartPosition.y + Range));
         }
         else if (type == Type.Type3)
         {
-            //your code
+            var length = Vector3.Distance(_sumomoStartPosition, _sumomo.transform.position);
+            if (length > Range)
+            {
+                //Case:1
+                _sumomo.transform.position = new Vector2(
+                    _sumomoStartPosition.x + (_sumomo.transform.position.x - _sumomoStartPosition.x) * Range / length,
+                    _sumomoStartPosition.y + (_sumomo.transform.position.y - _sumomoStartPosition.y) * Range / length);
+
+                //Case:2
+                // var sumomoDiff = _sumomo.transform.position - _sumomoStartPosition;
+                // var degree = Mathf.Atan2(sumomoDiff.y, sumomoDiff.x) * Mathf.Rad2Deg;
+                //
+                // _sumomo.transform.position = new Vector2(
+                //     _sumomoStartPosition.x + Mathf.Cos(degree * Mathf.PI / 180f) * Range,
+                //     _sumomoStartPosition.y + Mathf.Sin(degree * Mathf.PI / 180f) * Range);
+            }
         }
         
         _position = Input.mousePosition;
