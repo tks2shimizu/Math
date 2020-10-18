@@ -53,11 +53,11 @@ public class GameManager : MonoBehaviour
 
                 //Case:2
                 // var sumomoDiff = _sumomo.transform.position - _sumomoStartPosition;
-                // var degree = Mathf.Atan2(sumomoDiff.y, sumomoDiff.x) * Mathf.Rad2Deg;
+                // var rad = Mathf.Atan2(sumomoDiff.y, sumomoDiff.x);
                 //
                 // _sumomo.transform.position = new Vector2(
-                //     _sumomoStartPosition.x + Mathf.Cos(degree * Mathf.PI / 180f) * Range,
-                //     _sumomoStartPosition.y + Mathf.Sin(degree * Mathf.PI / 180f) * Range);
+                //     _sumomoStartPosition.x + Mathf.Cos(rad) * Range,
+                //     _sumomoStartPosition.y + Mathf.Sin(rad) * Range);
             }
         }
         
